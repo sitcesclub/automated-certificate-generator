@@ -144,37 +144,31 @@ export function AppHeader() {
   };
 
   return (
-    <header className="border-b border-slate-800 bg-slate-950 px-4 py-2.5 flex items-center justify-between sticky top-0 z-40">
+    <header className="border-b border-[#1e222b] bg-[#0c0d12] px-4 py-2.5 flex items-center justify-between sticky top-0 z-40">
       {/* Brand & Club Logo */}
       <div className="flex items-center space-x-3">
         <Link href="/" className="flex items-center space-x-2.5 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-blue-700 via-blue-600 to-amber-500 shadow-md shadow-blue-900/30 group-hover:scale-105 transition-transform">
-            <Award className="h-5 w-5 text-white" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#12141a] border border-[#222631] p-0.5 shadow-md shadow-black/60 group-hover:scale-105 transition-transform overflow-hidden">
+            <img
+              src="/ces-logo.svg"
+              alt="Computer Engineers' Society Logo"
+              className="h-full w-full object-contain"
+            />
           </div>
-          <div>
-            <div className="flex items-center space-x-2">
-              <span className="font-extrabold text-sm tracking-tight text-white group-hover:text-blue-400 transition-colors">
-                CES CertGen
-              </span>
-              <Badge variant="outline" className="text-[10px] py-0 px-1.5 border-blue-500/30 text-blue-400 hidden sm:inline-flex">
-                CES Society
-              </Badge>
-            </div>
-            <p className="text-[10px] text-slate-400 hidden md:block">
-              Computer Engineers' Society • Offline PWA
-            </p>
-          </div>
+          <span className="font-bold text-sm tracking-tight text-[#f1f3f7] group-hover:text-blue-400 transition-colors">
+            Computer Engineers&apos; Society
+          </span>
         </Link>
 
         {/* Separator */}
-        <div className="h-6 w-px bg-slate-800 hidden sm:block" />
+        <div className="h-6 w-px bg-[#1e222b] hidden sm:block" />
 
         {/* Template Name in place */}
         <div className="flex items-center space-x-2 max-w-[200px] sm:max-w-xs">
           <Input
             value={templateName}
             onChange={(e) => setTemplateName(e.target.value)}
-            className="h-8 text-xs bg-slate-900/80 border-slate-800 focus-visible:ring-blue-500 font-medium text-slate-200"
+            className="h-8 text-xs bg-[#12141a] border-[#1e222b] text-[#f1f3f7] font-medium"
             placeholder="Template name..."
           />
         </div>
@@ -185,12 +179,12 @@ export function AppHeader() {
         {/* Offline Status Badge */}
         <div className="hidden lg:flex items-center">
           {isOnline ? (
-            <Badge variant="secondary" className="bg-emerald-950/40 text-emerald-400 border border-emerald-800/40 text-[11px] flex items-center gap-1.5 py-1">
+            <Badge variant="success" className="text-[11px] flex items-center gap-1.5 py-1">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
               Online
             </Badge>
           ) : (
-            <Badge variant="secondary" className="bg-amber-950/40 text-amber-400 border border-amber-800/40 text-[11px] flex items-center gap-1.5 py-1">
+            <Badge variant="warning" className="text-[11px] flex items-center gap-1.5 py-1">
               <WifiOff className="h-3 w-3" />
               Offline Ready
             </Badge>
@@ -259,7 +253,7 @@ export function AppHeader() {
           </DialogHeader>
           <div className="space-y-3 py-2">
             <div>
-              <label className="text-xs font-semibold text-slate-300">Template Title</label>
+              <label className="text-xs font-semibold text-[#f1f3f7]">Template Title</label>
               <Input
                 value={templateName}
                 onChange={(e) => setTemplateName(e.target.value)}
@@ -268,7 +262,7 @@ export function AppHeader() {
               />
             </div>
             <div>
-              <label className="text-xs font-semibold text-slate-300">Description (Optional)</label>
+              <label className="text-xs font-semibold text-[#f1f3f7]">Description (Optional)</label>
               <Input
                 value={templateDescription}
                 onChange={(e) => setTemplateDescription(e.target.value)}
@@ -276,9 +270,9 @@ export function AppHeader() {
                 placeholder="e.g. Used for Annual Technical Festival participants"
               />
             </div>
-            <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 text-xs text-slate-400 space-y-1">
-              <div>• Configured dynamic fields: <strong className="text-white">{fields.length}</strong></div>
-              <div>• Background resolution: <strong className="text-white">{backgroundMeta ? `${backgroundMeta.width}x${backgroundMeta.height}` : 'Default (1920x1080)'}</strong></div>
+            <div className="p-3 bg-[#090a0d] rounded-lg border border-[#1e222b] text-xs text-[#7d8594] space-y-1">
+              <div>• Configured dynamic fields: <strong className="text-[#f1f3f7]">{fields.length}</strong></div>
+              <div>• Background resolution: <strong className="text-[#f1f3f7]">{backgroundMeta ? `${backgroundMeta.width}x${backgroundMeta.height}` : 'Default (1920x1080)'}</strong></div>
               <div>• Saved offline to IndexedDB (no cloud required)</div>
             </div>
           </div>

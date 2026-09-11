@@ -3,66 +3,10 @@ const path = require('path');
 const sharp = require('sharp');
 
 async function main() {
-  const iconsDir = path.join(__dirname, '..', 'public', 'icons');
   const samplesDir = path.join(__dirname, '..', 'public', 'samples');
-  fs.mkdirSync(iconsDir, { recursive: true });
   fs.mkdirSync(samplesDir, { recursive: true });
 
-  // 1. Generate PWA 512x512 icon SVG
-  const iconSvg512 = `
-    <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#1e3a8a" />
-          <stop offset="50%" stop-color="#2563eb" />
-          <stop offset="100%" stop-color="#0284c7" />
-        </linearGradient>
-        <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#fbbf24" />
-          <stop offset="100%" stop-color="#d97706" />
-        </linearGradient>
-      </defs>
-      <!-- Background Rounded Rect -->
-      <rect width="512" height="512" rx="110" fill="url(#grad)" />
-      
-      <!-- Subtle Tech Circuit Grid -->
-      <circle cx="256" cy="256" r="190" stroke="rgba(255,255,255,0.15)" stroke-width="4" fill="none" />
-      <circle cx="256" cy="256" r="140" stroke="rgba(255,255,255,0.12)" stroke-width="3" stroke-dasharray="12,12" fill="none" />
-
-      <!-- Certificate Icon Emblem -->
-      <rect x="136" y="116" width="240" height="280" rx="16" fill="#ffffff" filter="drop-shadow(0 20px 25px rgba(0,0,0,0.3))" />
-      <rect x="156" y="136" width="200" height="240" rx="10" fill="none" stroke="#2563eb" stroke-width="3" />
-      
-      <!-- Certificate Decorative Header Bar -->
-      <rect x="176" y="160" width="160" height="12" rx="6" fill="url(#gold)" />
-      <rect x="196" y="185" width="120" height="8" rx="4" fill="#94a3b8" />
-      <rect x="176" y="225" width="160" height="14" rx="7" fill="#1e3a8a" />
-      <rect x="186" y="250" width="140" height="8" rx="4" fill="#cbd5e1" />
-      <rect x="206" y="265" width="100" height="8" rx="4" fill="#cbd5e1" />
-      
-      <!-- Gold Ribbon Badge -->
-      <circle cx="256" cy="325" r="32" fill="url(#gold)" />
-      <polygon points="246,345 256,380 266,345" fill="#b45309" />
-      <polygon points="236,345 240,375 250,348" fill="#d97706" />
-      <polygon points="276,345 272,375 262,348" fill="#d97706" />
-      <circle cx="256" cy="325" r="24" fill="#fef3c7" stroke="#b45309" stroke-width="2" />
-      <text x="256" y="332" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#b45309" text-anchor="middle">★</text>
-    </svg>
-  `;
-
-  await sharp(Buffer.from(iconSvg512))
-    .resize(512, 512)
-    .png()
-    .toFile(path.join(iconsDir, 'icon-512.png'));
-  console.log('Created icon-512.png');
-
-  await sharp(Buffer.from(iconSvg512))
-    .resize(192, 192)
-    .png()
-    .toFile(path.join(iconsDir, 'icon-192.png'));
-  console.log('Created icon-192.png');
-
-  // 2. Generate a professional default CES Certificate template background (1920x1080)
+  // 1. Generate a professional default CES Certificate template background (1920x1080)
   const certSvg = `
     <svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
       <defs>

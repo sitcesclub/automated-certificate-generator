@@ -8,19 +8,19 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-blue-600 text-white shadow-sm hover:bg-blue-500 active:bg-blue-700",
+          "bg-blue-600 text-white shadow hover:bg-blue-500 active:bg-blue-700",
         destructive:
-          "bg-red-600 text-white shadow-sm hover:bg-red-500 active:bg-red-700",
+          "bg-[#3d1316] text-[#f87171] border border-[#5c1d24] shadow-sm hover:bg-[#4d171b] active:bg-[#5c1d24]",
         outline:
-          "border border-slate-700 bg-slate-900/60 text-slate-200 hover:bg-slate-800 hover:text-white",
+          "border border-[#222631] bg-[#12141a] text-[#e2e5eb] hover:bg-[#191c24] hover:border-[#343a49] hover:text-white shadow-sm",
         secondary:
-          "bg-slate-800 text-slate-200 shadow-sm hover:bg-slate-700 hover:text-white",
+          "bg-[#161922] text-[#e2e5eb] border border-[#222631] shadow-sm hover:bg-[#1e222d] hover:text-white",
         ghost:
-          "text-slate-300 hover:bg-slate-800 hover:text-white",
+          "text-[#949ba8] hover:bg-[#161820] hover:text-white",
         link:
           "text-blue-400 underline-offset-4 hover:underline p-0",
         gold:
-          "bg-amber-500 text-slate-950 font-semibold shadow hover:bg-amber-400 active:bg-amber-600",
+          "bg-amber-500 text-[#090a0d] font-semibold shadow hover:bg-amber-400 active:bg-amber-600",
       },
       size: {
         default: "h-9 px-4 py-2",

@@ -27,17 +27,18 @@ export default function MainPage() {
 
   if (!mounted) {
     return (
-      <div className="flex h-screen w-screen items-center justify-center bg-slate-950 text-slate-400">
+      <div className="flex h-screen w-screen items-center justify-center bg-[#090a0d] text-[#7d8594]">
         <div className="flex flex-col items-center space-y-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
-          <span className="text-xs font-medium">Loading CES CertGen...</span>
+          <img src="/ces-logo.svg" alt="CES Logo" className="h-14 w-14 object-contain animate-pulse" />
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
+          <span className="text-xs font-mono tracking-wider text-[#a1a7b5]">Loading CES CertGen...</span>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-slate-950">
+    <div className="flex h-screen flex-col overflow-hidden bg-[#090a0d] text-[#f1f3f7]">
       {/* Top Application Header */}
       <AppHeader />
 
@@ -49,7 +50,7 @@ export default function MainPage() {
         {activeTab === 'editor' && (
           <div className="flex-1 flex overflow-hidden">
             {/* Left Panel: Field Layers List (resizable / fixed 280px) */}
-            <aside className="w-64 sm:w-72 shrink-0 h-full border-r border-slate-800 hidden md:block">
+            <aside className="w-64 sm:w-72 shrink-0 h-full border-r border-[#1e222b] hidden md:block">
               <FieldList />
             </aside>
 
@@ -60,7 +61,7 @@ export default function MainPage() {
             </section>
 
             {/* Right Panel: Selected Field Properties (320px) */}
-            <aside className="w-80 shrink-0 h-full border-l border-slate-800 bg-slate-950/80 hidden lg:block">
+            <aside className="w-80 shrink-0 h-full border-l border-[#1e222b] bg-[#0c0d12] hidden lg:block">
               <FieldPropertiesPanel />
             </aside>
           </div>

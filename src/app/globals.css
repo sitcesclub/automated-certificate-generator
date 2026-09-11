@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #090d16;
-  --foreground: #f8fafc;
-  --card: #0f172a;
-  --card-foreground: #f8fafc;
-  --primary: #2563eb;
+  --background: #090a0d;
+  --foreground: #f1f3f7;
+  --card: #0f1116;
+  --card-foreground: #f1f3f7;
+  --primary: #3b82f6;
   --primary-foreground: #ffffff;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --border: #334155;
-  --accent: #3b82f6;
+  --muted: #161820;
+  --muted-foreground: #7d8594;
+  --border: #1e222b;
+  --accent: #1a1d26;
   --accent-foreground: #ffffff;
 }
 
@@ -19,43 +19,51 @@ body {
   color: var(--foreground);
   min-height: 100vh;
   overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Custom subtle scrollbar */
+/* Custom subtle dark scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #090a0d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #222631;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #343a4a;
 }
 
 /* Canvas checkered backdrop for transparency */
 .canvas-checkerboard {
-  background-color: #0b0f19;
+  background-color: #07080a;
   background-image:
-    linear-gradient(45deg, #131b2e 25%, transparent 25%),
-    linear-gradient(-45deg, #131b2e 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #131b2e 75%),
-    linear-gradient(-45deg, transparent 75%, #131b2e 75%);
+    linear-gradient(45deg, #0e1014 25%, transparent 25%),
+    linear-gradient(-45deg, #0e1014 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #0e1014 75%),
+    linear-gradient(-45deg, transparent 75%, #0e1014 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
 
-/* Glassmorphism helpers */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* High-tech Console Glassmorphism */
+.console-panel {
+  background: rgba(15, 17, 22, 0.95);
+  border: 1px solid #1e222b;
+}
+
+/* Code & Metadata label style */
+.tech-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #717786;
 }

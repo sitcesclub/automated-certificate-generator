@@ -49,7 +49,7 @@ export function FontPicker({ value, onChange }: FontPickerProps) {
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <Label className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+        <Label className="text-xs font-semibold text-[#f1f3f7] flex items-center gap-1.5">
           <Type className="h-3.5 w-3.5 text-blue-400" />
           Font Family
         </Label>
@@ -104,16 +104,16 @@ export function FontPicker({ value, onChange }: FontPickerProps) {
 
       {/* List custom fonts with delete option if selected */}
       {customFonts.length > 0 && (
-        <div className="text-[10px] text-slate-500 flex flex-wrap gap-1.5 pt-1">
+        <div className="text-[10px] text-[#7d8594] flex flex-wrap gap-1.5 pt-1">
           {customFonts.map((f) => (
             <span
               key={f.id}
-              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700"
+              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#161922] text-[#d1d5db] border border-[#262c38]"
             >
               <span style={{ fontFamily: f.name }}>{f.name}</span>
               <button
                 onClick={() => handleDeleteFont(f.id, f.name)}
-                className="text-slate-500 hover:text-red-400"
+                className="text-[#7d8594] hover:text-[#f87171]"
                 title="Delete font"
               >
                 ×

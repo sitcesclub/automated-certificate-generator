@@ -43,7 +43,7 @@ export function WorkflowStepper() {
   const { activeTab, setActiveTab, spreadsheetRows } = useAppStore();
 
   return (
-    <div className="flex items-center justify-between border-b border-slate-800 bg-slate-950/80 px-4 py-2 backdrop-blur">
+    <div className="flex items-center justify-between border-b border-[#1e222b] bg-[#0c0d12] px-4 py-2">
       <div className="flex items-center space-x-1 sm:space-x-2">
         {STEPS.map((step, idx) => {
           const Icon = step.icon;
@@ -56,32 +56,32 @@ export function WorkflowStepper() {
           return (
             <React.Fragment key={step.id}>
               {idx > 0 && (
-                <div className="h-0.5 w-3 sm:w-6 bg-slate-800 hidden sm:block" />
+                <div className="h-0.5 w-3 sm:w-6 bg-[#1e222b] hidden sm:block" />
               )}
               <button
                 onClick={() => setActiveTab(step.id)}
                 className={cn(
                   'flex items-center space-x-2 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all cursor-pointer',
                   isActive
-                    ? 'bg-blue-600/20 text-blue-400 border border-blue-500/40 shadow-sm'
-                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
+                    ? 'bg-[#14161e] text-[#f1f3f7] border border-[#2d3342] shadow-sm'
+                    : 'text-[#7d8594] hover:bg-[#12141a] hover:text-[#d1d5db]'
                 )}
               >
                 <div
                   className={cn(
-                    'flex h-5 w-5 items-center justify-center rounded-full text-[10px]',
+                    'flex h-5 w-5 items-center justify-center rounded text-[10px]',
                     isActive
-                      ? 'bg-blue-600 text-white font-bold'
+                      ? 'bg-blue-600 text-white font-bold shadow-sm'
                       : isCompleted
-                      ? 'bg-slate-800 text-slate-300'
-                      : 'bg-slate-800 text-slate-500'
+                      ? 'bg-[#1a1d26] text-[#9ca3af]'
+                      : 'bg-[#14161e] text-[#525866]'
                   )}
                 >
                   <Icon className="h-3 w-3" />
                 </div>
                 <div className="text-left hidden md:block">
                   <div className="font-semibold leading-none">{step.label}</div>
-                  <div className="text-[10px] text-slate-500 leading-tight mt-0.5">
+                  <div className="text-[10px] text-[#636b7b] leading-tight mt-0.5">
                     {step.description}
                   </div>
                 </div>
