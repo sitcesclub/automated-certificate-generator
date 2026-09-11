@@ -36,20 +36,20 @@ export function FieldList() {
   const sortedFields = [...fields].sort((a, b) => b.zIndex - a.zIndex);
 
   return (
-    <div className="flex h-full flex-col border-r border-slate-800 bg-slate-950/60 text-xs text-slate-300">
+    <div className="flex h-full flex-col border-r border-[#1e222b] bg-[#0c0d12] text-xs text-[#a1a7b5]">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-slate-800 p-3">
+      <div className="flex items-center justify-between border-b border-[#1e222b] p-3">
         <div className="flex items-center space-x-2">
           <Layers className="h-4 w-4 text-blue-400" />
-          <span className="font-semibold text-slate-100">Dynamic Fields</span>
-          <Badge variant="secondary" className="text-[10px] py-0 px-1.5">
+          <span className="font-semibold text-[#f1f3f7]">Dynamic Fields</span>
+          <Badge variant="secondary" className="text-[10px] py-0 px-1.5 border-[#232732]">
             {fields.length}
           </Badge>
         </div>
         <Button
           variant="outline"
           size="sm"
-          className="h-7 px-2 text-[11px] gap-1 border-blue-600/30 text-blue-400 hover:bg-blue-600/10"
+          className="h-7 px-2 text-[11px] gap-1 border-[#262c38] text-blue-400 hover:bg-[#172554]/30"
           onClick={() => addField()}
         >
           <Plus className="h-3 w-3" />
@@ -60,7 +60,7 @@ export function FieldList() {
       {/* Field Items List */}
       <div className="flex-1 overflow-y-auto p-2 space-y-1.5">
         {sortedFields.length === 0 ? (
-          <div className="p-4 text-center text-slate-500">
+          <div className="p-4 text-center text-[#555c6b]">
             No fields yet. Click "Add" above to create a text field.
           </div>
         ) : (
@@ -73,26 +73,26 @@ export function FieldList() {
                 onClick={() => setSelectedFieldId(field.id)}
                 className={`group flex items-center justify-between p-2.5 rounded-lg border transition-all cursor-pointer ${
                   isSelected
-                    ? 'border-blue-500/60 bg-blue-600/15 text-white shadow-sm'
-                    : 'border-slate-800/80 bg-slate-900/50 hover:border-slate-700 hover:bg-slate-900 text-slate-300'
+                    ? 'border-blue-500/60 bg-[#172554]/30 text-white shadow-sm'
+                    : 'border-[#1e222b] bg-[#12141a] hover:border-[#2d3342] hover:bg-[#161922] text-[#c9ced9]'
                 }`}
               >
                 <div className="flex items-center space-x-2 min-w-0 flex-1">
                   <div
-                    className="h-2.5 w-2.5 rounded-full shrink-0 border border-slate-600"
+                    className="h-2.5 w-2.5 rounded-full shrink-0 border border-[#262c38]"
                     style={{ backgroundColor: field.textColor }}
                     title={`Color: ${field.textColor}`}
                   />
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center space-x-1.5 truncate">
-                      <span className="font-medium text-xs truncate">{field.label}</span>
+                      <span className="font-medium text-xs truncate text-[#f1f3f7]">{field.label}</span>
                       {field.required && (
-                        <span className="text-red-400 text-[10px]" title="Required field">
+                        <span className="text-[#f87171] text-[10px]" title="Required field">
                           *
                         </span>
                       )}
                     </div>
-                    <div className="text-[10px] font-mono text-slate-500 truncate">
+                    <div className="text-[10px] font-mono text-[#7d8594] truncate">
                       {field.fieldKey} • {field.fontFamily}
                     </div>
                   </div>
@@ -105,13 +105,13 @@ export function FieldList() {
                       e.stopPropagation();
                       toggleVisibilityField(field.id);
                     }}
-                    className="p-1 rounded text-slate-400 hover:text-white"
+                    className="p-1 rounded text-[#7d8594] hover:text-white hover:bg-[#161922]"
                     title={field.visible ? 'Hide' : 'Show'}
                   >
                     {field.visible ? (
                       <Eye className="h-3 w-3" />
                     ) : (
-                      <EyeOff className="h-3 w-3 text-slate-600" />
+                      <EyeOff className="h-3 w-3 text-[#6e7482]" />
                     )}
                   </button>
 
@@ -120,13 +120,13 @@ export function FieldList() {
                       e.stopPropagation();
                       toggleLockField(field.id);
                     }}
-                    className="p-1 rounded text-slate-400 hover:text-white"
+                    className="p-1 rounded text-[#7d8594] hover:text-white hover:bg-[#161922]"
                     title={field.locked ? 'Unlock' : 'Lock'}
                   >
                     {field.locked ? (
                       <Lock className="h-3 w-3 text-amber-400" />
                     ) : (
-                      <Unlock className="h-3 w-3 text-slate-600 hover:text-slate-400" />
+                      <Unlock className="h-3 w-3 text-[#6e7482] hover:text-[#a1a7b5]" />
                     )}
                   </button>
 
@@ -135,7 +135,7 @@ export function FieldList() {
                       e.stopPropagation();
                       duplicateField(field.id);
                     }}
-                    className="p-1 rounded text-slate-400 hover:text-white hidden group-hover:block"
+                    className="p-1 rounded text-[#7d8594] hover:text-white hover:bg-[#161922] hidden group-hover:block"
                     title="Duplicate"
                   >
                     <Copy className="h-3 w-3" />
@@ -146,7 +146,7 @@ export function FieldList() {
                       e.stopPropagation();
                       deleteField(field.id);
                     }}
-                    className="p-1 rounded text-slate-400 hover:text-red-400 hidden group-hover:block"
+                    className="p-1 rounded text-[#7d8594] hover:text-[#f87171] hover:bg-[#240e13] hidden group-hover:block"
                     title="Delete"
                   >
                     <Trash2 className="h-3 w-3" />
@@ -160,19 +160,19 @@ export function FieldList() {
 
       {/* Layer order helpers */}
       {selectedFieldId && (
-        <div className="p-2 border-t border-slate-800 bg-slate-950 flex items-center justify-between text-[11px] text-slate-400">
-          <span>Layer order:</span>
+        <div className="p-2 border-t border-[#1e222b] bg-[#0c0d12] flex items-center justify-between text-[11px] text-[#7d8594]">
+          <span className="font-mono text-[10px] uppercase">Layer:</span>
           <div className="flex items-center space-x-1">
             <button
               onClick={() => bringToFront(selectedFieldId)}
-              className="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 hover:text-white flex items-center gap-1 cursor-pointer"
+              className="px-2 py-1 rounded bg-[#13151c] hover:bg-[#1a1d26] border border-[#222631] hover:text-white flex items-center gap-1 cursor-pointer text-[#a1a7b5]"
               title="Bring selected to front"
             >
               <ChevronUp className="h-3 w-3" /> Front
             </button>
             <button
               onClick={() => sendToBack(selectedFieldId)}
-              className="px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 hover:text-white flex items-center gap-1 cursor-pointer"
+              className="px-2 py-1 rounded bg-[#13151c] hover:bg-[#1a1d26] border border-[#222631] hover:text-white flex items-center gap-1 cursor-pointer text-[#a1a7b5]"
               title="Send selected to back"
             >
               <ChevronDown className="h-3 w-3" /> Back

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0f172a",
+  themeColor: "#090a0d",
   width: "device-width",
   initialScale: 1,
 };
@@ -45,7 +45,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 selection:bg-blue-600 selection:text-white font-sans" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-[#090a0d] text-[#f1f3f7] selection:bg-blue-600 selection:text-white font-sans" suppressHydrationWarning>
         <ServiceWorkerRegister />
         {children}
       </body>

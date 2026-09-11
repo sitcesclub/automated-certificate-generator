@@ -167,17 +167,23 @@ export function TestPreviewView() {
     'Sample Recipient';
 
   return (
-    <div className="h-full overflow-y-auto p-4 sm:p-6 space-y-6 max-w-7xl mx-auto text-slate-200">
+    <div className="h-full overflow-y-auto p-4 sm:p-6 space-y-6 max-w-7xl mx-auto text-[#f1f3f7]">
+      {/* Breadcrumb matching console reference */}
+      <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-[#6e7482]">
+        <span>CES / PIPELINE / TEST PREVIEW &amp; WYSIWYG VALIDATION</span>
+        <span>STAGE 03 OF 04</span>
+      </div>
+
       {/* Top Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-[#0c0d12] border border-[#1e222b]">
         <div>
           <div className="flex items-center space-x-2">
-            <span className="font-bold text-base text-white">Test Certificate Preview</span>
-            <Badge variant="outline" className="text-blue-400 border-blue-500/30">
-              High-Fidelity Render
+            <span className="font-mono font-bold text-sm text-white">TEST CERTIFICATE PREVIEW</span>
+            <Badge variant="outline" className="text-blue-400 border-blue-500/30 font-mono text-[10px]">
+              HIGH-FIDELITY RENDER
             </Badge>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#7d8594] mt-1">
             Review exactly how the generated certificates will look with actual data values before starting bulk generation.
           </p>
         </div>
@@ -186,7 +192,7 @@ export function TestPreviewView() {
           <Button
             variant="outline"
             size="sm"
-            className="h-8 text-xs gap-1.5"
+            className="h-8 text-xs gap-1.5 border-[#222631] bg-[#12141a] text-[#d1d5db] hover:bg-[#161922] font-mono"
             onClick={() => setActiveTab('editor')}
           >
             <Sliders className="h-3.5 w-3.5" />
@@ -195,7 +201,7 @@ export function TestPreviewView() {
           <Button
             variant="outline"
             size="sm"
-            className="h-8 text-xs gap-1.5 border-blue-600/30 text-blue-400 hover:bg-blue-600/10"
+            className="h-8 text-xs gap-1.5 border-blue-600/40 text-blue-400 hover:bg-blue-600/10 font-mono"
             onClick={handleDownloadSingle}
             disabled={isRendering || !renderedImageUrl}
           >
@@ -205,10 +211,10 @@ export function TestPreviewView() {
           <Button
             variant="default"
             size="sm"
-            className="h-8 text-xs bg-blue-600 hover:bg-blue-500 gap-1.5"
+            className="h-8 text-xs bg-blue-600 hover:bg-blue-500 gap-1.5 font-mono text-white"
             onClick={() => setActiveTab('generate')}
           >
-            <span>Proceed to Bulk Generate</span>
+            <span>Bulk Generation</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </Button>
         </div>
@@ -218,14 +224,14 @@ export function TestPreviewView() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Certificate Render Viewer */}
         <div className="lg:col-span-3 space-y-4">
-          <Card className="border-slate-800 bg-slate-900/90 overflow-hidden">
-            <CardHeader className="pb-3 flex flex-row items-center justify-between">
+          <Card className="border-[#1e222b] bg-[#0f1116] overflow-hidden">
+            <CardHeader className="pb-3 border-b border-[#1e222b] flex flex-row items-center justify-between">
               <div>
-                <CardTitle className="text-sm flex items-center space-x-2">
-                  <span>Certificate Preview:</span>
-                  <span className="text-blue-400">{recipientName}</span>
+                <CardTitle className="text-xs font-mono uppercase tracking-wider text-[#a1a7b5] flex items-center space-x-2">
+                  <span>CERTIFICATE PREVIEW:</span>
+                  <span className="text-[#38bdf8]">{recipientName}</span>
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-xs text-[#7d8594] font-mono">
                   Rendered at full resolution ({backgroundMeta?.width || 1920}×{backgroundMeta?.height || 1080}px)
                 </CardDescription>
               </div>
@@ -236,20 +242,20 @@ export function TestPreviewView() {
                   <Button
                     variant="outline"
                     size="icon"
-                    className="h-7 w-7"
+                    className="h-7 w-7 border-[#222631] bg-[#12141a] text-[#d1d5db] hover:bg-[#161922]"
                     onClick={() => setActivePreviewIndex((i) => Math.max(0, i - 1))}
                     disabled={activePreviewIndex === 0}
                     title="Previous Recipient"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  <span className="text-xs font-mono text-slate-300">
-                    {activePreviewIndex + 1} of {validRows.length}
+                  <span className="text-xs font-mono text-[#a1a7b5]">
+                    {activePreviewIndex + 1} / {validRows.length}
                   </span>
                   <Button
                     variant="outline"
                     size="icon"
-                    className="h-7 w-7"
+                    className="h-7 w-7 border-[#222631] bg-[#12141a] text-[#d1d5db] hover:bg-[#161922]"
                     onClick={() => setActivePreviewIndex((i) => Math.min(validRows.length - 1, i + 1))}
                     disabled={activePreviewIndex >= validRows.length - 1}
                     title="Next Recipient"
@@ -260,14 +266,14 @@ export function TestPreviewView() {
               )}
             </CardHeader>
 
-            <CardContent className="p-4 sm:p-6 bg-slate-950/80 flex items-center justify-center min-h-[420px] canvas-checkerboard">
+            <CardContent className="p-4 sm:p-6 bg-[#090a0d] flex items-center justify-center min-h-[420px] canvas-checkerboard">
               {isRendering ? (
-                <div className="flex flex-col items-center space-y-2 text-slate-400">
+                <div className="flex flex-col items-center space-y-2 text-[#7d8594]">
                   <RefreshCw className="h-8 w-8 animate-spin text-blue-500" />
-                  <span className="text-xs">Rendering certificate with custom fonts...</span>
+                  <span className="text-xs font-mono">Rendering certificate with custom fonts...</span>
                 </div>
               ) : renderedImageUrl ? (
-                <div className="relative max-w-full rounded-lg shadow-2xl overflow-hidden border border-slate-800">
+                <div className="relative max-w-full rounded-lg shadow-2xl overflow-hidden border border-[#1e222b]">
                   <img
                     src={renderedImageUrl}
                     alt="Certificate Test Preview"
@@ -275,7 +281,7 @@ export function TestPreviewView() {
                   />
                 </div>
               ) : (
-                <div className="text-xs text-slate-500">Preparing preview...</div>
+                <div className="text-xs text-[#7d8594] font-mono">Preparing preview...</div>
               )}
             </CardContent>
           </Card>
@@ -283,14 +289,14 @@ export function TestPreviewView() {
 
         {/* Right Info: Substituted Field Values */}
         <div className="space-y-4">
-          <Card className="border-slate-800 bg-slate-900/90">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-sm">Values Substituted</CardTitle>
-              <CardDescription>
+          <Card className="border-[#1e222b] bg-[#0f1116]">
+            <CardHeader className="pb-3 border-b border-[#1e222b]">
+              <CardTitle className="text-xs font-mono uppercase tracking-wider text-[#a1a7b5]">VALUES SUBSTITUTED</CardTitle>
+              <CardDescription className="text-xs text-[#7d8594] font-mono">
                 Live mapping for recipient #{activePreviewIndex + 1}
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-3 text-xs">
+            <CardContent className="space-y-3 text-xs pt-4">
               {fields.map((field) => {
                 const mappedCol = columnMapping[field.fieldKey];
                 const value = sampleRow[field.fieldKey] || sampleRow[field.label] || field.defaultValue;
@@ -298,35 +304,23 @@ export function TestPreviewView() {
                 return (
                   <div
                     key={field.id}
-                    className="p-2.5 rounded bg-slate-950 border border-slate-800/80 space-y-1"
+                    className="p-2.5 rounded bg-[#12141a] border border-[#1e222b] space-y-1"
                   >
-                    <div className="flex items-center justify-between text-slate-400 text-[11px]">
+                    <div className="flex items-center justify-between text-[#7d8594] text-[11px]">
                       <span className="font-semibold text-white">{field.label}</span>
                       <span className="font-mono text-[10px] text-blue-400">
                         {mappedCol ? `col: ${mappedCol}` : 'fallback'}
                       </span>
                     </div>
-                    <div className="font-medium text-slate-200 truncate" title={String(value)}>
-                      {String(value) || <span className="text-slate-600 italic">none</span>}
+                    <div className="font-medium font-mono text-[#f1f3f7] truncate" title={String(value)}>
+                      {String(value) || <span className="text-[#6e7482] italic font-sans">none</span>}
                     </div>
-                    <div className="text-[10px] text-slate-500">
+                    <div className="text-[10px] text-[#6e7482] font-mono">
                       Font: {field.fontFamily}, {field.fontSize}px, {field.textAlign}
                     </div>
                   </div>
                 );
               })}
-
-              <div className="pt-2">
-                <Button
-                  variant="default"
-                  size="lg"
-                  className="w-full bg-blue-600 hover:bg-blue-500 gap-2"
-                  onClick={() => setActiveTab('generate')}
-                >
-                  <CheckCircle2 className="h-4 w-4" />
-                  Looks Good! Proceed to Bulk Generate
-                </Button>
-              </div>
             </CardContent>
           </Card>
         </div>

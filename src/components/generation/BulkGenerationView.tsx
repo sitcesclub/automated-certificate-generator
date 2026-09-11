@@ -108,15 +108,21 @@ export function BulkGenerationView() {
   };
 
   return (
-    <div className="h-full overflow-y-auto p-4 sm:p-6 space-y-6 max-w-5xl mx-auto text-slate-200">
+    <div className="h-full overflow-y-auto p-4 sm:p-6 space-y-6 max-w-5xl mx-auto text-[#f1f3f7]">
+      {/* Breadcrumb matching console reference */}
+      <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-[#6e7482]">
+        <span>CES / PIPELINE / PARALLEL BULK GENERATION &amp; ZIP ARCHIVING</span>
+        <span>STAGE 04 OF 04</span>
+      </div>
+
       {/* Top Header Card */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-[#0c0d12] border border-[#1e222b]">
         <div>
-          <h2 className="font-bold text-base text-white flex items-center gap-2">
-            <FileArchive className="h-5 w-5 text-blue-400" />
-            Bulk Certificate Generation
+          <h2 className="font-mono font-bold text-sm text-white flex items-center gap-2">
+            <FileArchive className="h-4 w-4 text-blue-400" />
+            BULK CERTIFICATE GENERATION
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#7d8594] mt-1">
             Produce customized high-resolution certificates for all {totalCount} recipients in parallel client-side.
           </p>
         </div>
@@ -125,7 +131,7 @@ export function BulkGenerationView() {
           <Button
             variant="outline"
             size="sm"
-            className="h-8 text-xs"
+            className="h-8 text-xs font-mono border-[#222631] bg-[#12141a] text-[#d1d5db] hover:bg-[#161922]"
             onClick={() => setActiveTab('data')}
             disabled={isGenerating}
           >
@@ -134,7 +140,7 @@ export function BulkGenerationView() {
           <Button
             variant="outline"
             size="sm"
-            className="h-8 text-xs"
+            className="h-8 text-xs font-mono border-[#222631] bg-[#12141a] text-[#d1d5db] hover:bg-[#161922]"
             onClick={() => setActiveTab('preview')}
             disabled={isGenerating}
           >
@@ -145,11 +151,11 @@ export function BulkGenerationView() {
 
       {/* Warning if Batch Size > 5,000 */}
       {isOverSafeBatchSize && (
-        <div className="flex items-start space-x-3 p-4 rounded-xl bg-amber-950/40 border border-amber-700/50 text-amber-200 text-xs">
+        <div className="flex items-start space-x-3 p-4 rounded-xl bg-[#241508] border border-[#54320f] text-[#fcd34d] text-xs font-mono">
           <AlertTriangle className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
           <div>
-            <div className="font-semibold text-amber-300">Large Dataset Notice ({totalCount} certificates)</div>
-            <p className="mt-0.5 text-amber-300/80 leading-relaxed">
+            <div className="font-semibold text-amber-300">LARGE DATASET NOTICE ({totalCount} CERTIFICATES)</div>
+            <p className="mt-0.5 text-amber-300/80 leading-relaxed font-sans">
               You are generating more than {MAX_SAFE_BATCH_SIZE} certificates. While our batching architecture manages memory carefully, generation may take several minutes depending on your device's hardware. Please keep this browser tab open during generation.
             </p>
           </div>
@@ -157,21 +163,21 @@ export function BulkGenerationView() {
       )}
 
       {/* Output Settings Configuration */}
-      <Card className="border-slate-800 bg-slate-900/90">
-        <CardHeader className="pb-3">
-          <CardTitle className="text-sm flex items-center gap-2">
+      <Card className="border-[#1e222b] bg-[#0f1116]">
+        <CardHeader className="pb-3 border-b border-[#1e222b]">
+          <CardTitle className="text-xs font-mono uppercase tracking-wider text-[#a1a7b5] flex items-center gap-2">
             <Settings className="h-4 w-4 text-blue-400" />
-            Output & Export Settings
+            OUTPUT &amp; EXPORT SETTINGS
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-xs text-[#7d8594] font-mono">
             Configure image format, naming convention, and archive name.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4 text-xs">
+        <CardContent className="space-y-4 text-xs pt-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Format Selection */}
             <div>
-              <Label className="text-xs text-slate-300 mb-1.5 block">Image Format</Label>
+              <Label className="text-xs font-semibold text-[#f1f3f7] mb-1.5 block">Image Format</Label>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
@@ -180,11 +186,11 @@ export function BulkGenerationView() {
                   className={`p-2.5 rounded-lg border text-left cursor-pointer transition-colors ${
                     outputSettings.format === 'png'
                       ? 'border-blue-500 bg-blue-600/20 text-white'
-                      : 'border-slate-700 bg-slate-950 text-slate-400'
+                      : 'border-[#222631] bg-[#12141a] text-[#7d8594] hover:bg-[#161922]'
                   }`}
                 >
-                  <div className="font-semibold text-xs">PNG (Lossless)</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">Highest visual fidelity</div>
+                  <div className="font-semibold font-mono text-xs">PNG (Lossless)</div>
+                  <div className="text-[10px] text-[#7d8594] mt-0.5">Highest visual fidelity</div>
                 </button>
 
                 <button
@@ -194,11 +200,11 @@ export function BulkGenerationView() {
                   className={`p-2.5 rounded-lg border text-left cursor-pointer transition-colors ${
                     outputSettings.format === 'jpeg'
                       ? 'border-blue-500 bg-blue-600/20 text-white'
-                      : 'border-slate-700 bg-slate-950 text-slate-400'
+                      : 'border-[#222631] bg-[#12141a] text-[#7d8594] hover:bg-[#161922]'
                   }`}
                 >
-                  <div className="font-semibold text-xs">JPEG (Compressed)</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">Smaller ZIP size</div>
+                  <div className="font-semibold font-mono text-xs">JPEG (Compressed)</div>
+                  <div className="text-[10px] text-[#7d8594] mt-0.5">Smaller ZIP size</div>
                 </button>
               </div>
             </div>
@@ -206,7 +212,7 @@ export function BulkGenerationView() {
             {/* JPEG Quality Slider if JPEG */}
             {outputSettings.format === 'jpeg' && (
               <div>
-                <div className="flex justify-between text-xs text-slate-300 mb-1.5">
+                <div className="flex justify-between text-xs text-[#f1f3f7] mb-1.5">
                   <span>JPEG Quality</span>
                   <span className="font-mono text-blue-400">{Math.round(outputSettings.quality * 100)}%</span>
                 </div>
@@ -225,8 +231,8 @@ export function BulkGenerationView() {
             {/* Filename Pattern */}
             <div className="sm:col-span-2">
               <div className="flex items-center justify-between mb-1">
-                <Label className="text-xs text-slate-300">Filename Pattern</Label>
-                <span className="text-[10px] text-slate-500 font-mono">
+                <Label className="text-xs font-semibold text-[#f1f3f7]">Filename Pattern</Label>
+                <span className="text-[10px] text-[#6e7482] font-mono">
                   Supported placeholders: {'{recipient_name}'}, {'{certificate_id}'}, {'{index}'}
                 </span>
               </div>
@@ -234,19 +240,19 @@ export function BulkGenerationView() {
                 value={outputSettings.filenamePattern}
                 onChange={(e) => setOutputSettings({ filenamePattern: e.target.value })}
                 disabled={isGenerating}
-                className="h-8 text-xs font-mono bg-slate-950 border-slate-700"
+                className="h-8 text-xs font-mono bg-[#090a0d] border-[#222631]"
                 placeholder="Certificate_{recipient_name}_{certificate_id}"
               />
             </div>
 
             {/* ZIP Filename */}
             <div className="sm:col-span-2">
-              <Label className="text-xs text-slate-300 mb-1 block">ZIP Archive Filename</Label>
+              <Label className="text-xs font-semibold text-[#f1f3f7] mb-1 block">ZIP Archive Filename</Label>
               <Input
                 value={outputSettings.zipFilename}
                 onChange={(e) => setOutputSettings({ zipFilename: e.target.value })}
                 disabled={isGenerating}
-                className="h-8 text-xs bg-slate-950 border-slate-700"
+                className="h-8 text-xs font-mono bg-[#090a0d] border-[#222631]"
                 placeholder="CES_Certificates"
               />
             </div>
@@ -255,13 +261,13 @@ export function BulkGenerationView() {
       </Card>
 
       {/* Generation Control & Progress */}
-      <Card className="border-slate-800 bg-slate-900/90">
+      <Card className="border-[#1e222b] bg-[#0f1116]">
         <CardContent className="p-6 space-y-5">
           {/* Progress Bar & Status */}
           {isGenerating || generationProgress.status !== 'idle' ? (
             <div className="space-y-3">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-medium text-slate-300">
+                <span className="font-medium text-[#f1f3f7]">
                   {generationProgress.currentName || 'Generating certificates...'}
                 </span>
                 <span className="font-mono font-bold text-blue-400">
@@ -269,15 +275,15 @@ export function BulkGenerationView() {
                 </span>
               </div>
 
-              <Progress value={generationProgress.percentage} className="h-3" />
+              <Progress value={generationProgress.percentage} className="h-2.5 bg-[#12141a]" />
 
-              <div className="flex items-center justify-between text-[11px] text-slate-500">
-                <span>Status: {generationProgress.status.toUpperCase()}</span>
+              <div className="flex items-center justify-between text-[11px] font-mono text-[#7d8594]">
+                <span>STATUS: {generationProgress.status.toUpperCase()}</span>
                 {isGenerating && (
                   <Button
                     variant="destructive"
                     size="sm"
-                    className="h-7 text-xs gap-1"
+                    className="h-7 text-xs gap-1 font-mono"
                     onClick={handleCancelGeneration}
                   >
                     <XCircle className="h-3.5 w-3.5" />
@@ -287,17 +293,17 @@ export function BulkGenerationView() {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-lg bg-slate-950 border border-slate-800">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-lg bg-[#12141a] border border-[#1e222b]">
               <div>
-                <div className="font-semibold text-sm text-white">Ready for Generation</div>
-                <div className="text-xs text-slate-400 mt-0.5">
+                <div className="font-semibold text-sm text-white font-mono">READY FOR GENERATION</div>
+                <div className="text-xs text-[#7d8594] mt-0.5">
                   {totalCount} recipients will be rendered into {outputSettings.format.toUpperCase()} files.
                 </div>
               </div>
               <Button
                 variant="default"
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-500 font-semibold px-6 gap-2 w-full sm:w-auto"
+                className="bg-blue-600 hover:bg-blue-500 font-mono text-xs font-semibold px-6 gap-2 w-full sm:w-auto text-white"
                 onClick={handleStartGeneration}
                 disabled={totalCount === 0}
               >
@@ -309,18 +315,18 @@ export function BulkGenerationView() {
 
           {/* Download Button on completion */}
           {generatedZipBlob && (
-            <div className="p-5 rounded-xl bg-gradient-to-r from-blue-950/60 to-emerald-950/60 border border-emerald-500/40 space-y-3 animate-in fade-in-50">
-              <div className="flex items-center space-x-2 text-emerald-400">
+            <div className="p-5 rounded-xl bg-[#091a14] border border-[#123829] space-y-3 animate-in fade-in-50">
+              <div className="flex items-center space-x-2 text-[#34d399]">
                 <CheckCircle2 className="h-5 w-5" />
-                <span className="font-bold text-sm">All Certificates Generated Successfully!</span>
+                <span className="font-bold font-mono text-sm">ALL CERTIFICATES GENERATED SUCCESSFULLY!</span>
               </div>
-              <p className="text-xs text-slate-300">
+              <p className="text-xs text-[#a1a7b5]">
                 Your ZIP archive is compiled and ready. Size: ~{Math.round((generatedZipBlob.size / (1024 * 1024)) * 10) / 10} MB.
               </p>
               <Button
                 variant="default"
                 size="lg"
-                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 font-bold gap-2 text-white shadow-lg shadow-emerald-950"
+                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 font-mono text-xs font-bold gap-2 text-white shadow-lg shadow-black"
                 onClick={handleDownloadZip}
               >
                 <Download className="h-4 w-4" />

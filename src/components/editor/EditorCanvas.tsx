@@ -207,7 +207,7 @@ export function EditorCanvas() {
   return (
     <div
       ref={containerRef}
-      className="relative flex-1 overflow-auto bg-slate-950 canvas-checkerboard p-4 sm:p-8 flex items-center justify-center select-none"
+      className="relative flex-1 overflow-auto bg-[#090a0d] canvas-checkerboard p-4 sm:p-8 flex items-center justify-center select-none"
       onClick={() => setSelectedFieldId(null)}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
