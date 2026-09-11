@@ -148,8 +148,12 @@ export function AppHeader() {
       {/* Brand & Club Logo */}
       <div className="flex items-center space-x-3">
         <Link href="/" className="flex items-center space-x-2.5 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-tr from-blue-700 via-blue-600 to-amber-500 shadow-md shadow-blue-900/30 group-hover:scale-105 transition-transform">
-            <Award className="h-5 w-5 text-white" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900 border border-slate-700/60 p-0.5 shadow-md shadow-blue-950/40 group-hover:scale-105 transition-transform overflow-hidden">
+            <img
+              src="/ces-logo.svg"
+              alt="Computer Engineers' Society Logo"
+              className="h-full w-full object-contain"
+            />
           </div>
           <div>
             <div className="flex items-center space-x-2">

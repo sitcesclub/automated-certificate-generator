@@ -110,7 +110,7 @@ export default function TemplatesPage() {
             </Link>
             <div>
               <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-                <FolderOpen className="h-5 w-5 text-blue-400" />
+                <img src="/ces-logo.svg" alt="CES Logo" className="h-6 w-6 object-contain inline-block" />
                 Certificate Templates Library
               </h1>
               <p className="text-xs text-slate-400 mt-0.5">
@@ -155,7 +155,7 @@ export default function TemplatesPage() {
           </div>
         ) : templates.length === 0 ? (
           <div className="rounded-xl border-2 border-dashed border-slate-800 p-12 text-center">
-            <Award className="mx-auto h-12 w-12 text-slate-700 mb-3" />
+            <img src="/ces-logo.svg" alt="CES Logo" className="mx-auto h-16 w-16 object-contain opacity-40 mb-3" />
             <h3 className="text-sm font-semibold text-slate-300">No saved templates yet</h3>
             <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
               Design a certificate template in the editor and click "Save", or import an existing .ces-template package.

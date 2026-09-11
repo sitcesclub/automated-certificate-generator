@@ -29,8 +29,9 @@ export default function MainPage() {
     return (
       <div className="flex h-screen w-screen items-center justify-center bg-slate-950 text-slate-400">
         <div className="flex flex-col items-center space-y-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
-          <span className="text-xs font-medium">Loading CES CertGen...</span>
+          <img src="/ces-logo.svg" alt="CES Logo" className="h-14 w-14 object-contain animate-pulse" />
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" />
+          <span className="text-xs font-medium text-slate-300">Loading CES CertGen...</span>
         </div>
       </div>
     );
